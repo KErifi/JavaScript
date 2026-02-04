@@ -28,6 +28,8 @@ if (bmi < 18.5) {
 
 const month = Number(prompt("Введите число от 1 до 12"));
 
+let monthName;
+
 switch (month) {
     case 1:
         monthName = 'Январь';
@@ -66,7 +68,7 @@ switch (month) {
         monthName = 'Декабрь';
         break;
     default:
-        dayName = 'Ошибка: введите число от 1 до 12';
+        console.log('Ошибка: введите число от 1 до 12');
 }
 
 console.log(monthName);
