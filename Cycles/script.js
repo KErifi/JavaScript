@@ -36,12 +36,12 @@ for (let num = 2; num <= 100; num++) {
 // алгоритм с проверкой делителей до квадратного корня числа
 
 for (let number = 2; number <= 100; number++) {
-    let check = true;
+    let isPrime = true;
     let sqrtNumber = Math.sqrt(number);
 
     for (let i = 2; i <= sqrtNumber; i++) {
         if (number % i === 0) {
-            check = false;
+            isPrime = false;
             break;
         }
     }
