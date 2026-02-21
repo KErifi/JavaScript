@@ -34,7 +34,7 @@ person['age'] = 29;
 
 delete person.isStudent;
 
-onsole.log(person);
+console.log(person);
 
 
 console.log(person.name);
