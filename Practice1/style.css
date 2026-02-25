@@ -1,0 +1,104 @@
+body {
+    font-family: "Jura", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #2c2c2c;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: "Stalinist One", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+h2 {
+    font-family: "Stalinist One", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+#app {
+    margin: 40px 100px;
+}
+
+.image {
+    max-width: 700px;
+    width: 100%;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+button {
+    padding: 12px 24px;
+    cursor: pointer;
+    background-color: #ff8c00;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+button:hover {
+    background-color: #ff6505;
+}
+
+.screen #question-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.answer {
+    padding: 20px 150px;
+    border: 1px solid #ff8c00;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.answer:hover {
+    background-color: #e0e0e0;
+}
+
+.answer.correct {
+    background-color: #28a745;
+    color: white;
+}
+
+.answer.wrong {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+
+#next-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.screen #result-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}

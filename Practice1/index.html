@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кино‑тест</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Stalinist+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="start-screen" class="screen active">
+            <h1>Отгадайте фильм по кадру</h1>
+            <p>15 вопросов</p> <!-- отображаем количество вопросов -->
+            <img src="https://i.ytimg.com/vi/OKeCb3bWNo8/maxresdefault.jpg" alt="Кадры из фильма" class="image">
+            <button id="start-btn">Начать тест</button>
+        </div>
+
+        <div id="question-screen" class="screen">
+            <div id="progress">Вопрос 1/15</div>
+            <h2 id="question-text"></h2>
+            <img id="question-image" src="" alt="Изображение вопроса" class="image">
+            <div id="answers"></div>
+            <button id="next-btn" disabled>Дальше</button>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <h2>Ваш результат</h2>
+            <p id="score-text"></p>
+            <button id="restart-btn">Пройти заново</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
