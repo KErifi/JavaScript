@@ -1,0 +1,64 @@
+body {
+    font-family: "Viaoda Libre", serif;
+    font-weight: 400;
+    background-image: url(https://img.itch.zone/aW1hZ2UvMjU0NDcwMC8xNTE1MTM2NC5naWY=/original/I5LeYQ.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #24221d;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+#game-container {
+    max-width: 700px;
+    width: 100%;
+    background-image: url(https://i.pinimg.com/originals/e7/e3/d6/e7e3d68cb151dd0e50f9cdd8f1cdb689.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 50px;
+    border: 10px ridge #422d0a;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.person {
+    display: flex;
+    gap: 50px;
+}
+
+#actions button, #combat button {
+    margin: 0 20px 20px 0;
+    padding: 10px;
+    border: 10px ridge #422d0a;
+    background-color: transparent;
+    max-width: 200px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#log {
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 10px ridge #422d0a;
+}

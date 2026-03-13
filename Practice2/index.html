@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="game-container">
+        <h1>Текстовая игра</h1>
+
+        <div id="stats">
+            <h2>Статистика персонажа</h2>
+            <div class="person">
+                <div class="column">
+                    <p><b>Имя:</b> <span id="player-name"></span></p>
+                    <p><b>Здоровье:</b> <span id="player-hp"></span></p>
+                    <p><b>Сила:</b> <span id="player-attack"></span></p>
+                    <p><b>Защита:</b> <span id="player-defense"></span></p>
+                </div>
+
+                <div class="column">
+                    <p><b>Уровень:</b> <span id="player-level"></span></p>
+                    <p><b>Опыт:</b> <span id="player-exp"></span></p>
+                    <p><b>Инвентарь:</b> <span id="player-inventory"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="location">
+            <h2>Локация</h2>
+            <p id="current-location">Начало пути</p>
+            <p id="location-description"></p>
+        </div>
+
+        <div id="actions">
+            <h2>Действия</h2>
+            <div class="button">
+                <button id="explore-btn">Исследовать</button>
+                <button id="use-item-btn">Использовать предмет</button>
+                <button id="reset-btn">Сброс</button>
+            </div>
+        </div>
+
+        <div id="combat" style="display:none;">
+            <h2>Бой с врагом!</h2>
+            <p id="enemy-name"></p>
+            <p><b>Здоровье:</b> <span id="enemy-hp"></span></p>
+            <div class="button">
+                <button id="attack-btn">Атаковать</button>
+                <button id="defend-btn">Защита</button>
+                <button id="use-combat-item-btn">Использовать предмет</button>
+            </div>
+        </div>
+
+        <div id="log">
+            <h2>Журнал событий</h2>
+            <div id="log-messages"></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
