@@ -36,7 +36,10 @@ startBtn.addEventListener('click', () => {
     if (intervalId !== null) {
         clearInterval(intervalId);
         intervalId = null;
-        console.log("Таймер остановлен");
+
+        startBtn.textContent = 'Начать';
+        console.log('Таймер остановлен');
+
         return;
     }
 
@@ -44,7 +47,7 @@ startBtn.addEventListener('click', () => {
     const text = textInput.value;
 
     if (isNaN(delay) || delay <= 0) {
-        alert("Введите корректную задержку в миллисекундах!");
+        alert('Введите корректную задержку');
         return;
     }
 
@@ -52,5 +55,6 @@ startBtn.addEventListener('click', () => {
         console.log(text);
     }, delay);
 
-    console.log("Таймер запущен");
+    startBtn.textContent = 'Остановить';
+    console.log('Таймер запущен');
 });
