@@ -1,0 +1,13 @@
+.outer {
+      padding: 30px;
+      background-color: rgb(240, 128, 128);
+    }
+    .middle {
+      padding: 20px;
+      background-color: rgb(173, 216, 230);
+    }
+    .inner {
+      padding: 10px;
+      background-color: rgb(144, 238, 144);
+      cursor: pointer;
+    }
