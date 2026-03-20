@@ -52,10 +52,16 @@ function displayExpenses() {
     expenses.forEach((expense, index) => {
         const li = document.createElement('li');
 
-        li.innerHTML = `
-                    ${expense.description} | ${expense.amount} ₽ | ${expense.date}
-                    <button onclick="deleteExpense(${index})">Удалить</button>
-                `;
+        li.textContent = `${expense.description} | ${expense.amount} ₽ | ${expense.date} `;
+
+        const button = document.createElement('button');
+        button.textContent = 'Удалить';
+
+        button.addEventListener('click', function () {
+            deleteExpense(index);
+        });
+
+        li.appendChild(button);
 
         expenseList.appendChild(li);
     });
@@ -96,7 +102,7 @@ displayExpenses();
 // 3
 const timer = document.getElementById('timer');
 
-let seconds = sessionStorage.getItem('activeTime') || 0;
+let seconds = Number(sessionStorage.getItem('activeTime')) || 0;
 
 function updateTimer() {
     seconds++;
