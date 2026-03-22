@@ -1,6 +1,7 @@
 // 1
 const form = document.getElementById('postForm');
 const result = document.getElementById('result');
+const postMessage = document.getElementById('postMessage');
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -11,59 +12,97 @@ form.addEventListener('submit', async (event) => {
         body: document.getElementById('body').value
     };
 
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newPost)
-    });
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newPost)
+        });
 
-    const data = await response.json();
+        if (!response.ok) {
+            throw new Error('Ошибка при создании поста');
+        }
 
-    result.innerHTML = `
-        <h3>Ответ сервера:</h3>
-        <pre>${JSON.stringify(data, null, 2)}</pre>
-      `;
+        const data = await response.json();
+
+        result.innerHTML = `
+          <h3>Ответ сервера:</h3>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+
+        postMessage.textContent = '';
+
+    } catch (error) {
+        postMessage.textContent = error.message;
+    }
 });
 
 // 2 и 3
 const button = document.getElementById('loadPosts');
 const postsContainer = document.getElementById('postsContainer');
+const message = document.getElementById('message');
 
 button.addEventListener('click', async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
-    const posts = await response.json();
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
 
-    postsContainer.innerHTML = '';
+        if (!response.ok) {
+            throw new Error('Ошибка при загрузке постов');
+        }
 
-    posts.forEach(post => {
-        const postElement = document.createElement('div');
+        const posts = await response.json();
 
-        postElement.id = `post-${post.id}`;
+        postsContainer.innerHTML = '';
+        message.textContent = '';
 
-        postElement.innerHTML = `
-          <h3>${post.title}</h3>
-          <p>${post.body}</p>
-          <button onclick="deletePost(${post.id})">Удалить</button>
-          <hr>
-        `;
+        posts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.id = `post-${post.id}`;
 
-        postsContainer.appendChild(postElement);
-    });
+            const title = document.createElement('h3');
+            title.textContent = post.title;
+
+            const body = document.createElement('p');
+            body.textContent = post.body;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Удалить';
+
+            deleteButton.addEventListener('click', async () => {
+                try {
+                    const deleteResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (!deleteResponse.ok) {
+                        throw new Error('Ошибка при удалении поста');
+                    }
+
+                    postElement.remove();
+
+                } catch (error) {
+                    message.textContent = error.message;
+                }
+            });
+
+            postElement.appendChild(title);
+            postElement.appendChild(body);
+            postElement.appendChild(deleteButton);
+
+            postsContainer.appendChild(postElement);
+        });
+
+    } catch (error) {
+        message.textContent = error.message;
+    }
 });
-
-async function deletePost(id) {
-    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        method: 'DELETE'
-    });
-
-    document.getElementById(`post-${id}`).remove();
-}
 
 // 4
 const updateForm = document.getElementById('updateUserForm');
 const userResult = document.getElementById('userResult');
+const userMessage = document.getElementById('userMessage');
 
 updateForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -76,21 +115,32 @@ updateForm.addEventListener('submit', async (event) => {
         email: document.getElementById('editEmail').value
     };
 
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedUser)
-    });
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedUser)
+        });
 
-    const data = await response.json();
+        if (!response.ok) {
+            throw new Error('Ошибка при обновлении пользователя');
+        }
 
-    userResult.innerHTML = `
-        <h3>Обновленные данные:</h3>
-        <pre>${JSON.stringify(data, null, 2)}</pre>
-      `;
+        const data = await response.json();
+
+        userResult.innerHTML = `
+          <h3>Обновленные данные:</h3>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+
+        userMessage.textContent = '';
+
+    } catch (error) {
+        userMessage.textContent = error.message;
+    }
 });
 
-// PUT полностью заменяет ресурс на сервере - сервер считает, что ты отправляешь новую версию объекта, и все поля должны быть указаны, 
+// PUT полностью заменяет ресурс на сервере - сервер считает, что ты отправляешь новую версию объекта, и все поля должны быть указаны,
 // иначе они могут пропасть. PATCH меняет только указанные поля, оставляя остальные без изменений.
