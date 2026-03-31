@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DynaPuff", system-ui;
+    color: #141414;
+    font-size: 16px;
+    font-weight: 100;
+    background-image: url(https://cdn.vectorstock.com/i/500p/11/31/slime-drip-background-green-sticky-vector-42111131.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.app {
+    width: 800px;
+    background: #141414;
+    border: 3px solid #0bff00;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 32px;
+    color: #0bff00;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 12px;
+    border-radius: 15px;
+    background: #f4f4f4;
+    border: 3px solid #0bff00;
+}
+
+.add-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 15px;
+    background: #0bff00;
+    cursor: pointer;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    border: 3px solid #0bff00;
+}
+
+.task.completed span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.task-buttons button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #0bff00;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.filter-btn {
+    border: 3px solid #0bff00;
+    padding: 10px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #0bff00;
+    color: #141414;
+}
